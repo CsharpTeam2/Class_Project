@@ -1,0 +1,17 @@
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\bin\Debug\Library Project.exe.config
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\bin\Debug\Library Project.exe
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\bin\Debug\Library Project.pdb
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\obj\Debug\Library Project.csprojResolveAssemblyReference.cache
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.Form1.resources
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.Properties.Resources.resources
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\obj\Debug\Library Project.csproj.GenerateResource.Cache
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\obj\Debug\Library Project.exe
+c:\users\linux-jake\documents\visual studio 2012\Projects\Library Project\Library Project\obj\Debug\Library Project.pdb
+C:\Users\Linux-Jake\Documents\Visual Studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.Login.resources
+C:\Users\Linux-Jake\Documents\Visual Studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.Manage_Books.resources
+C:\Users\Linux-Jake\Documents\Visual Studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.ManageUsers.resources
+C:\Users\Linux-Jake\Documents\Visual Studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.CheckIn.resources
+C:\Users\Linux-Jake\Documents\Visual Studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.CheckOut.resources
+C:\Users\Linux-Jake\Documents\Visual Studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.Print.resources
+C:\Users\Linux-Jake\Documents\Visual Studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.dateAdvance.resources
+C:\Users\Linux-Jake\Documents\Visual Studio 2012\Projects\Library Project\Library Project\obj\Debug\Library_Project.dataImport.resources
