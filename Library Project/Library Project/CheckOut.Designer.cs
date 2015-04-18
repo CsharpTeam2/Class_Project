@@ -46,7 +46,7 @@
             this.button1.Location = new System.Drawing.Point(101, 115);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Done";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -56,7 +56,7 @@
             this.button2.Location = new System.Drawing.Point(12, 115);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
+            this.button2.TabIndex = 3;
             this.button2.Text = "Check Out";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -66,7 +66,7 @@
             this.txtUserId.Location = new System.Drawing.Point(76, 27);
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(100, 20);
-            this.txtUserId.TabIndex = 2;
+            this.txtUserId.TabIndex = 1;
             // 
             // txtBookId
             // 
@@ -81,7 +81,7 @@
             this.label1.Location = new System.Drawing.Point(21, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 0;
             this.label1.Text = "User ID:";
             // 
             // label2
@@ -90,7 +90,7 @@
             this.label2.Location = new System.Drawing.Point(21, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 3;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Book ID:";
             // 
             // textBox1
@@ -99,7 +99,7 @@
             this.textBox1.Location = new System.Drawing.Point(0, 151);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(201, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBox1.TabIndex = 0;
             // 
             // errorProvider1
             // 

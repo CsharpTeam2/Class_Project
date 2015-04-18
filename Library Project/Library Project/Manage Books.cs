@@ -19,9 +19,9 @@ namespace Library_Project
 
         private void Manage_Books_Load(object sender, EventArgs e)
         {
-             string[] list = Program.LibraryInstance.listAllBooks();
-              
-             listBox1.DataSource = list; 
+            string[] list = Program.LibraryInstance.listAllBooks();
+
+            listBox1.DataSource = list;
 
 
         }
@@ -96,13 +96,18 @@ namespace Library_Project
                 string title = txtTitle.Text;
                 string callNum = txtCallNum.Text;
                 int mediaType = listBoxMedia.SelectedIndex;
-
-                Book book = new Book(bookID, authorLastName,authorFirstName,title,callNum,mediaType);
-                Program.LibraryInstance.addBook(book);
-                ClearTextBoxes();
-                string[] list = Program.LibraryInstance.listAllBooks();
-                listBox1.DataSource = list;
-                
+                string response = Program.LibraryInstance.addBook(bookID, authorLastName, authorFirstName, title, callNum, mediaType);
+                if (response == "Book Added")
+                {
+                    MessageBox.Show(response);
+                    ClearTextBoxes();
+                    string[] list = Program.LibraryInstance.listAllBooks();
+                    listBox1.DataSource = list;
+                }
+                else
+                {
+                    MessageBox.Show(response);
+                }
             }
         }
         private void ClearTextBoxes()
@@ -129,13 +134,40 @@ namespace Library_Project
         private void button2_Click(object sender, EventArgs e)
         {
             string input = listBox1.GetItemText(listBox1.SelectedItem);
-            int index = input.IndexOf(" "); 
-            if (index> 0)
+            int index = input.IndexOf(" ");
+            if (index > 0)
                 input = input.Substring(0, index);
             Program.LibraryInstance.removeBook(Convert.ToInt32(input));
             string[] list = Program.LibraryInstance.listAllBooks();
-            listBox1.DataSource = list; 
+            listBox1.DataSource = list;
 
+        }
+
+        private void txtLastName_TextChanged_1(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtLastName.Text, "[^a-zA-Z]"))
+            {
+                MessageBox.Show("Please enter only letters.");
+                txtLastName.Text = txtLastName.Text.Remove(txtLastName.Text.Length - 1);
+            }
+        }
+
+        private void txtBookId_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtBookId.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                txtBookId.Text = txtBookId.Text.Remove(txtBookId.Text.Length - 1);
+            }
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtFirstName.Text, "[^a-zA-Z]"))
+            {
+                MessageBox.Show("Please enter only letters.");
+                txtFirstName.Text = txtFirstName.Text.Remove(txtFirstName.Text.Length - 1);
+            }
         }
     }
 }

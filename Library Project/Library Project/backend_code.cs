@@ -418,10 +418,20 @@ namespace Library_Project
             
         }//end listPatronBooks
 
-        public void addBook(Book newBook)
+        public string addBook(int bookID, string lastName, string firstName, string title, string callNumber, int medType)
         {
+            for (int index = 0; index < bookCap; index++)
+            {
+                if (bookID == books[index].getBookID())
+                {
+                    return "Book ID already in use, please pick another";
+                }
+            }
+            Book newBook = new Book(bookID, lastName,firstName,title,callNumber,medType);    
             books[bookCap] = newBook;
             bookCap++;
+            return "Book Added";
+            
         }//end addbook
 
         public void removeBook(int bookID)
@@ -466,10 +476,21 @@ namespace Library_Project
             }
         }//end removeBook
 
-        public void addUser(User newUser)
+        public string addUser(int userID, string lastName, string firstName, int uType)
         {
+            for (int index = 0; index < userCap; index++)
+            {
+                if (userID == users[index].getUserID())
+                {
+                    return "User ID already in use, please pick another";
+                }
+            }
+            User newUser = new User(userID, lastName, firstName, uType);
             users[userCap] = newUser;
-            userCap++;
+            userCap++; 
+            return "User Added";
+            
+            
         }//end addUser
 
         public void removeUser(int userID)

@@ -52,7 +52,7 @@
             this.listBox1.Location = new System.Drawing.Point(252, 7);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(390, 238);
-            this.listBox1.TabIndex = 20;
+            this.listBox1.TabIndex = 0;
             // 
             // label3
             // 
@@ -60,7 +60,7 @@
             this.label3.Location = new System.Drawing.Point(15, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 16;
+            this.label3.TabIndex = 0;
             this.label3.Text = "First Name:";
             // 
             // label2
@@ -69,7 +69,7 @@
             this.label2.Location = new System.Drawing.Point(15, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 17;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Last Name:";
             // 
             // bookID
@@ -78,7 +78,7 @@
             this.bookID.Location = new System.Drawing.Point(15, 18);
             this.bookID.Name = "bookID";
             this.bookID.Size = new System.Drawing.Size(46, 13);
-            this.bookID.TabIndex = 18;
+            this.bookID.TabIndex = 0;
             this.bookID.Text = "User ID:";
             // 
             // txtFirstName
@@ -86,28 +86,31 @@
             this.txtFirstName.Location = new System.Drawing.Point(99, 78);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
-            this.txtFirstName.TabIndex = 8;
+            this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(99, 48);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
-            this.txtLastName.TabIndex = 9;
+            this.txtLastName.TabIndex = 2;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
             // 
             // txtUserId
             // 
-            this.txtUserId.Location = new System.Drawing.Point(99, 18);
+            this.txtUserId.Location = new System.Drawing.Point(99, 22);
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(100, 20);
-            this.txtUserId.TabIndex = 12;
+            this.txtUserId.TabIndex = 1;
+            this.txtUserId.TextChanged += new System.EventHandler(this.txtUserId_TextChanged);
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(549, 258);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 23);
-            this.button3.TabIndex = 5;
+            this.button3.TabIndex = 7;
             this.button3.Text = "Done";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -127,7 +130,7 @@
             this.button1.Location = new System.Drawing.Point(17, 258);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 23);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Add User";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -138,7 +141,7 @@
             this.label1.Location = new System.Drawing.Point(15, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 21;
+            this.label1.TabIndex = 0;
             this.label1.Text = "User Type:";
             // 
             // listBoxType
@@ -150,7 +153,7 @@
             this.listBoxType.Location = new System.Drawing.Point(99, 105);
             this.listBoxType.Name = "listBoxType";
             this.listBoxType.Size = new System.Drawing.Size(100, 43);
-            this.listBoxType.TabIndex = 22;
+            this.listBoxType.TabIndex = 4;
             // 
             // errorProvider1
             // 
@@ -176,6 +179,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManageUsers";
             this.Text = "ManageUsers";
+            this.Load += new System.EventHandler(this.ManageUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

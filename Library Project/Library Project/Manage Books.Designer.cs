@@ -55,7 +55,7 @@
             this.button1.Location = new System.Drawing.Point(14, 263);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Add Book";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -65,7 +65,7 @@
             this.button2.Location = new System.Drawing.Point(153, 263);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 23);
-            this.button2.TabIndex = 0;
+            this.button2.TabIndex = 8;
             this.button2.Text = "Remove Book";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -76,34 +76,37 @@
             this.txtBookId.Name = "txtBookId";
             this.txtBookId.Size = new System.Drawing.Size(100, 20);
             this.txtBookId.TabIndex = 1;
+            this.txtBookId.TextChanged += new System.EventHandler(this.txtBookId_TextChanged);
             // 
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(96, 113);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(100, 20);
-            this.txtTitle.TabIndex = 1;
+            this.txtTitle.TabIndex = 4;
             // 
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(96, 53);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
-            this.txtLastName.TabIndex = 1;
+            this.txtLastName.TabIndex = 2;
+            this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged_1);
             // 
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(96, 83);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(100, 20);
-            this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.TextChanged += new System.EventHandler(this.txtFirstName_TextChanged);
             // 
             // txtCallNum
             // 
             this.txtCallNum.Location = new System.Drawing.Point(96, 143);
             this.txtCallNum.Name = "txtCallNum";
             this.txtCallNum.Size = new System.Drawing.Size(100, 20);
-            this.txtCallNum.TabIndex = 1;
+            this.txtCallNum.TabIndex = 5;
             // 
             // bookID
             // 
@@ -111,7 +114,7 @@
             this.bookID.Location = new System.Drawing.Point(11, 23);
             this.bookID.Name = "bookID";
             this.bookID.Size = new System.Drawing.Size(49, 13);
-            this.bookID.TabIndex = 2;
+            this.bookID.TabIndex = 0;
             this.bookID.Text = "Book ID:";
             // 
             // label2
@@ -120,7 +123,7 @@
             this.label2.Location = new System.Drawing.Point(11, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Last Name:";
             // 
             // label3
@@ -129,7 +132,7 @@
             this.label3.Location = new System.Drawing.Point(11, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 0;
             this.label3.Text = "First Name:";
             // 
             // label4
@@ -138,7 +141,7 @@
             this.label4.Location = new System.Drawing.Point(11, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
-            this.label4.TabIndex = 2;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Title:";
             // 
             // label5
@@ -147,7 +150,7 @@
             this.label5.Location = new System.Drawing.Point(11, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 13);
-            this.label5.TabIndex = 2;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Call Number:";
             // 
             // label6
@@ -156,7 +159,7 @@
             this.label6.Location = new System.Drawing.Point(11, 169);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 13);
-            this.label6.TabIndex = 2;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Media Type:";
             // 
             // listBoxMedia
@@ -170,7 +173,7 @@
             this.listBoxMedia.Location = new System.Drawing.Point(96, 169);
             this.listBoxMedia.Name = "listBoxMedia";
             this.listBoxMedia.Size = new System.Drawing.Size(100, 56);
-            this.listBoxMedia.TabIndex = 3;
+            this.listBoxMedia.TabIndex = 6;
             // 
             // errorProvider1
             // 
@@ -182,14 +185,14 @@
             this.listBox1.Location = new System.Drawing.Point(249, 12);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(390, 238);
-            this.listBox1.TabIndex = 4;
+            this.listBox1.TabIndex = 0;
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(546, 263);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 23);
-            this.button3.TabIndex = 0;
+            this.button3.TabIndex = 9;
             this.button3.Text = "Done";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);

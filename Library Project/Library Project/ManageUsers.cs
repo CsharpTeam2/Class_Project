@@ -66,12 +66,19 @@ namespace Library_Project
                 string lastName = txtLastName.Text;
                 string firstName = txtFirstName.Text;
                 int type = listBoxType.SelectedIndex;
+                string response = Program.LibraryInstance.addUser(userID, lastName, firstName, type);
 
-                User user = new User(userID, lastName, firstName, type);
-                Program.LibraryInstance.addUser(user);
-                ClearTextBoxes();
-                string[] list = Program.LibraryInstance.listPatrons();
-                listBox1.DataSource = list;
+                if (response == "User Added")
+                {
+                    MessageBox.Show(response);
+                    ClearTextBoxes();
+                    string[] list = Program.LibraryInstance.listPatrons();
+                    listBox1.DataSource = list;
+                }
+                else
+                MessageBox.Show(response);
+                    
+
             }
         }
         private void ClearTextBoxes()
@@ -102,6 +109,43 @@ namespace Library_Project
             if (index > 0)
                 input = input.Substring(0, index);
             Program.LibraryInstance.removeUser(Convert.ToInt32(input));
+            string[] list = Program.LibraryInstance.listPatrons();
+            listBox1.DataSource = list; 
+        }
+
+        private void txtUserId_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtUserId.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                txtUserId.Text = txtUserId.Text.Remove(txtUserId.Text.Length - 1);
+            }
+
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtLastName.Text, "[^a-zA-Z]"))
+            {
+                MessageBox.Show("Please enter only letters.");
+                txtLastName.Text = txtLastName.Text.Remove(txtLastName.Text.Length - 1);
+            }
+
+        }
+
+        private void txtFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtFirstName.Text, "[^a-zA-Z]"))
+            {
+                MessageBox.Show("Please enter only letters.");
+                txtFirstName.Text = txtFirstName.Text.Remove(txtFirstName.Text.Length - 1);
+            }
+        }
+
+        private void ManageUsers_Load(object sender, EventArgs e)
+        {
             string[] list = Program.LibraryInstance.listPatrons();
             listBox1.DataSource = list; 
         }
