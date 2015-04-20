@@ -57,6 +57,7 @@ namespace Library_Project
         {
             if (ValidateTextBoxes())
             {
+                txtUserId.Clear();
                 string lastName = txtLastName.Text;
                 string firstName = txtFirstName.Text;
                 int num= Program.LibraryInstance.lookUpId(lastName, firstName); //function attempts to find Patron Id 
