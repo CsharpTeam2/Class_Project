@@ -199,5 +199,11 @@ namespace Library_Project
                 txtFirstName.Text = txtFirstName.Text.Remove(txtFirstName.Text.Length - 1);
             }
         }
+        //opens look up book form
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LookUpBook lookUpBook = new LookUpBook();
+            lookUpBook.ShowDialog();
+        }
     }
 }

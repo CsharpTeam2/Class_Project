@@ -87,6 +87,12 @@
     <Compile Include="lookUp.Designer.cs">
       <DependentUpon>lookUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="LookUpBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookUpBook.Designer.cs">
+      <DependentUpon>LookUpBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage Books.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="lookUp.resx">
       <DependentUpon>lookUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LookUpBook.resx">
+      <DependentUpon>LookUpBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Books.resx">
       <DependentUpon>Manage Books.cs</DependentUpon>

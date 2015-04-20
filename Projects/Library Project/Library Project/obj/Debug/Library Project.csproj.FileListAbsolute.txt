@@ -55,3 +55,4 @@ C:\Users\Linux-Jake\Downloads\Library\Library Project\Library Project\obj\Debug\
 C:\Users\Linux-Jake\Downloads\Library\Library Project\Library Project\obj\Debug\Library_Project.Properties.Resources.resources
 C:\Users\Linux-Jake\Downloads\Library\Library Project\Library Project\obj\Debug\Library_Project.userImport.resources
 C:\Users\Linux-Jake\Downloads\Library\Library Project\Library Project\obj\Debug\Library Project.csproj.GenerateResource.Cache
+C:\Users\Linux-Jake\Downloads\Library\Library Project\Library Project\obj\Debug\Library_Project.LookUpBook.resources

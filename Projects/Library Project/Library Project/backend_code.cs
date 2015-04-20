@@ -624,6 +624,20 @@ namespace Library_Project
             }
             return 0;
         }
+        /// <summary>
+        /// uses title to find book id
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
+        public int lookUpBook(string title)
+        {
+            for (int index = 0; index < bookCap; index++)
+            {
+                if (books[index].getTitle() == title)
+                    return books[index].getBookID();
+            }
+            return 0;
+        }
         public int getBookCap()
         {
             return bookCap;
