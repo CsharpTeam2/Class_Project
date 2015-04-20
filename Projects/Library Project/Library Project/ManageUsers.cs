@@ -16,7 +16,10 @@ namespace Library_Project
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Used to verify there are no empty fields on button push
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateTextBoxes()
         {
             if (txtUserId.Text.Trim().Length == 0)
@@ -57,7 +60,11 @@ namespace Library_Project
 
             return true;
         }
-
+        /// <summary>
+        /// on button push if data fields are correc then the user is added and success message sent to user, on failure, failure message sent to user. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (ValidateTextBoxes())
@@ -70,17 +77,20 @@ namespace Library_Project
 
                 if (response == "User Added")
                 {
-                    MessageBox.Show(response);
-                    ClearTextBoxes();
-                    string[] list = Program.LibraryInstance.listPatrons();
+                    MessageBox.Show(response);//send success message
+                    ClearTextBoxes();//clear all the textboxes so user can add more Patrons without having to reopen form.
+                    string[] list = Program.LibraryInstance.listPatrons(); // repopulate the listbox with the new data
                     listBox1.DataSource = list;
                 }
                 else
-                MessageBox.Show(response);
+                MessageBox.Show(response);//send failure message
                     
 
             }
         }
+        /// <summary>
+        /// used to clear all text boxes all at once
+        /// </summary>
         private void ClearTextBoxes()
         {
             Action<Control.ControlCollection> func = null;
@@ -96,12 +106,16 @@ namespace Library_Project
 
             func(Controls);
         }
-
+        //done button
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Used to remove user from library
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             string input = listBox1.GetItemText(listBox1.SelectedItem);
@@ -112,7 +126,11 @@ namespace Library_Project
             string[] list = Program.LibraryInstance.listPatrons();
             listBox1.DataSource = list; 
         }
-
+        /// <summary>
+        /// makes sure only numbers are entered in the ID field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUserId_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(txtUserId.Text, "[^0-9]"))
@@ -122,7 +140,11 @@ namespace Library_Project
             }
 
         }
-
+        /// <summary>
+        /// used to make sure no numbers are entered in the name field, if you have numbers in your name you've got bigger problems than not having you name correctly in this library system
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLastName_TextChanged(object sender, EventArgs e)
         {
 
@@ -133,7 +155,11 @@ namespace Library_Project
             }
 
         }
-
+        /// <summary>
+        /// used to make sure no numbers are used in firstname field, see previous comment for cheeky remarks
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
 
@@ -143,13 +169,21 @@ namespace Library_Project
                 txtFirstName.Text = txtFirstName.Text.Remove(txtFirstName.Text.Length - 1);
             }
         }
-
+        /// <summary>
+        /// Populates the listbox on load of the form with users in the system
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ManageUsers_Load(object sender, EventArgs e)
         {
             string[] list = Program.LibraryInstance.listPatrons();
             listBox1.DataSource = list; 
         }
-
+        /// <summary>
+        /// Opens User lookup form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             lookUp lookUp = new lookUp();

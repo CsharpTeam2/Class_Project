@@ -16,7 +16,11 @@ namespace Library_Project
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// populated the list box on load of the form with books in the library
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Manage_Books_Load(object sender, EventArgs e)
         {
             string[] list = Program.LibraryInstance.listAllBooks();
@@ -25,7 +29,10 @@ namespace Library_Project
 
 
         }
-
+        /// <summary>
+        /// Used to make sure there are not empty fields
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateTextBoxes()
         {
             if (txtBookId.Text.Trim().Length == 0)
@@ -85,7 +92,11 @@ namespace Library_Project
 
             return true;
         }
-
+        /// <summary>
+        /// reads fields and creates variables attempts to create media.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void button1_Click(object sender, EventArgs e)
         {
             if (ValidateTextBoxes())
@@ -96,20 +107,23 @@ namespace Library_Project
                 string title = txtTitle.Text;
                 string callNum = txtCallNum.Text;
                 int mediaType = listBoxMedia.SelectedIndex;
-                string response = Program.LibraryInstance.addBook(bookID, authorLastName, authorFirstName, title, callNum, mediaType);
+                string response = Program.LibraryInstance.addBook(bookID, authorLastName, authorFirstName, title, callNum, mediaType);//attempt to add media
                 if (response == "Book Added")
                 {
-                    MessageBox.Show(response);
+                    MessageBox.Show(response);//success message
                     ClearTextBoxes();
-                    string[] list = Program.LibraryInstance.listAllBooks();
+                    string[] list = Program.LibraryInstance.listAllBooks();//reload listbox
                     listBox1.DataSource = list;
                 }
                 else
                 {
-                    MessageBox.Show(response);
+                    MessageBox.Show(response);//failure message
                 }
             }
         }
+        /// <summary>
+        /// Clears all textboxes at once
+        /// </summary>
         private void ClearTextBoxes()
         {
             Action<Control.ControlCollection> func = null;
@@ -125,12 +139,16 @@ namespace Library_Project
 
             func(Controls);
         }
-
+        //done button
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /// <summary>
+        /// Used to remove media from the library
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             string input = listBox1.GetItemText(listBox1.SelectedItem);
@@ -142,7 +160,11 @@ namespace Library_Project
             listBox1.DataSource = list;
 
         }
-
+        /// <summary>
+        /// Makes sure that only letters are entered in this field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtLastName_TextChanged_1(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(txtLastName.Text, "[^a-zA-Z]"))
@@ -151,7 +173,11 @@ namespace Library_Project
                 txtLastName.Text = txtLastName.Text.Remove(txtLastName.Text.Length - 1);
             }
         }
-
+        /// <summary>
+        /// Makes sure that only numbers are entered in this field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtBookId_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(txtBookId.Text, "[^0-9]"))
@@ -160,7 +186,11 @@ namespace Library_Project
                 txtBookId.Text = txtBookId.Text.Remove(txtBookId.Text.Length - 1);
             }
         }
-
+        /// <summary>
+        /// Makes sure that only letters are entered in this field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(txtFirstName.Text, "[^a-zA-Z]"))

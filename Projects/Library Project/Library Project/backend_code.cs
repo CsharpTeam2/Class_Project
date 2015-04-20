@@ -96,6 +96,26 @@ namespace Library_Project
         {
             return mediaType;
         }//end getMediaType
+        public DateTime getDueDate()
+        {
+            return dueDate;
+        }
+        public string getFirstName()
+        {
+            return authorFirstName;
+        }
+        public string getLastName()
+        {
+            return authorLastName;
+        }
+        public string getTitle()
+        {
+            return title;
+        }
+        public string getCall()
+        {
+            return callNum;
+        }
 
         public override string ToString()
         {
@@ -317,7 +337,7 @@ namespace Library_Project
             return "Book Error";
         }//end checkIn
 
-        public string checkOut(int bookID, int userID)
+        public string checkOut(int bookID, int userID, DateTime date)
         {
             int bookIndex = 0;
             int userIndex = 0;
@@ -374,7 +394,7 @@ namespace Library_Project
 
             //if all checks pass then we can check out the book
             users[userIndex].addBook(books[bookIndex]);
-            return "Book checked out, you have until: "+books[bookIndex].checkOut(userID, today).ToString()+" to return";
+            return "Book checked out, you have until: "+books[bookIndex].checkOut(userID, date).ToString()+" to return";
         }//end checkOut
 
         public void incrementDate()
@@ -431,7 +451,7 @@ namespace Library_Project
                     found = true;
                     break;
                 }
-            }
+            }//end for loop
             if (found)
             {
                 return users[uIndex].listBooks();
@@ -443,7 +463,16 @@ namespace Library_Project
             }//if not found return string saying it wasn't found
             
         }//end listPatronBooks
-
+        /// <summary>
+        /// Function checks to see if there is a duplicate in the system, if there is it returns error, else creates a new book object and returns success message
+        /// </summary>
+        /// <param name="bookID"></param>
+        /// <param name="lastName"></param>
+        /// <param name="firstName"></param>
+        /// <param name="title"></param>
+        /// <param name="callNumber"></param>
+        /// <param name="medType"></param>
+        /// <returns></returns>
         public string addBook(int bookID, string lastName, string firstName, string title, string callNumber, int medType)
         {
             for (int index = 0; index < bookCap; index++)
@@ -501,7 +530,14 @@ namespace Library_Project
                 bookCap--;
             }
         }//end removeBook
-
+        /// <summary>
+        /// Function checks to see if there is a duplicate in the system, if there is it returns error, else creates a new user object and returns success message
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="lastName"></param>
+        /// <param name="firstName"></param>
+        /// <param name="uType"></param>
+        /// <returns></returns>
         public string addUser(int userID, string lastName, string firstName, int uType)
         {
             for (int index = 0; index < userCap; index++)
@@ -570,6 +606,12 @@ namespace Library_Project
         {
             today = date;
         }//end advanceToDate
+        /// <summary>
+        /// uses the lastname and firstname fields to find a users id in the list of users. 
+        /// </summary>
+        /// <param name="lastName"></param>
+        /// <param name="firstName"></param>
+        /// <returns></returns>
         public int lookUpId(string lastName, string firstName)
         {
             for (int index = 0; index < userCap; index++)
@@ -581,6 +623,64 @@ namespace Library_Project
                 }
             }
             return 0;
+        }
+        public int getBookCap()
+        {
+            return bookCap;
+        }
+
+        public int getUserCap()
+        {
+            return userCap;
+        }
+        /// <summary>
+        /// creates a string array of all the media items and their characteristics in order to save them to a file.
+        /// </summary>
+        /// <returns></returns>
+        public string[] saveMedia()
+        {
+            string[] data = new string[bookCap];
+            for (int index = 0; index < bookCap; index++)
+            {
+                string bookId = books[index].getBookID().ToString();
+                string lastName = books[index].getLastName();
+                string firstName = books[index].getFirstName();
+                string title = books[index].getTitle();
+                string call = books[index].getCall();
+                string type = books[index].getMediaType().ToString();
+                if (books[index].getUserID() != -1)
+                {
+                    string userId = books[index].getUserID().ToString();
+                    string date = books[index].getDueDate().ToString();
+                    data[index] = (String.Format("{0};{1};{2};{3};{4};{5};{6};{7}", bookId, lastName, firstName, title, call, type,userId,date));
+                }
+                else
+                {
+                    data[index] = String.Format("{0};{1};{2};{3};{4};{5}", bookId, lastName, firstName, title, call,type);
+                }
+            }
+            return data;
+        }
+        /// <summary>
+        /// Creates a string array of all the media items and their characteristics in order to save them to a file. 
+        /// </summary>
+        /// <returns></returns>
+        public string[] saveUsers()
+        {
+            string[] data = new string[userCap];
+            for (int index = 0; index<userCap; index++)
+            {
+                string userId = users[index].getUserID().ToString();
+                string lastName = users[index].getUserLastName();
+                string firstName = users[index].getUserFirstName();
+                string type;
+                if (users[index].isChild())
+                    type = "1";
+                else
+                    type = "0";
+                data[index] = String.Format("{0};{1};{2};{3}", userId, lastName, firstName, type);
+            }
+            return data;
         }
     }
 }//end namespace Library

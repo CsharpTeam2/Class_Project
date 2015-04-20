@@ -16,11 +16,15 @@ namespace Library_Project
         {
             InitializeComponent();
         }
-
+        //done button
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        /// <summary>
+        /// Used to verify all fields have been entered by user
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateTextBoxes()
         {
             
@@ -44,19 +48,23 @@ namespace Library_Project
             }
             return true;
         }
-
+        /// <summary>
+        /// On button push validates fields and attempts to find users Id
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (ValidateTextBoxes())
             {
                 string lastName = txtLastName.Text;
                 string firstName = txtFirstName.Text;
-                int num= Program.LibraryInstance.lookUpId(lastName, firstName);
+                int num= Program.LibraryInstance.lookUpId(lastName, firstName); //function attempts to find Patron Id 
                 if(num == 0)
-                    MessageBox.Show("User is not in the System, Please add");
+                    MessageBox.Show("User is not in the System, Please add");//if 0 returned Patron not in system notify user
                 else
-                    txtUserId.Text = txtUserId.Text.Insert(txtUserId.SelectionStart, num.ToString());
-                txtLastName.Clear();
+                    txtUserId.Text = txtUserId.Text.Insert(txtUserId.SelectionStart, num.ToString());//display Patron Id
+                txtLastName.Clear();//clear boxes so next data can be entered
                 txtFirstName.Clear();
                 
                 

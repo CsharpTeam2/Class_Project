@@ -16,6 +16,10 @@ namespace Library_Project
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// This function is used to make sure there are no empty boxes when processing data
+        /// </summary>
+        /// <returns>bool</returns>
         private bool ValidateTextBoxes()
         {
             if (txtUserName.Text.Trim().Length == 0)
@@ -38,7 +42,11 @@ namespace Library_Project
             }
             return true;
         }
-
+        /// <summary>
+        /// Used to check the information on in the text fields vs the static values to see if they match
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (ValidateTextBoxes())
@@ -54,7 +62,7 @@ namespace Library_Project
 
             }
         }
-
+        //closes window on press
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();

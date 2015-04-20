@@ -55,6 +55,7 @@
             this.txtBookId.Name = "txtBookId";
             this.txtBookId.Size = new System.Drawing.Size(100, 20);
             this.txtBookId.TabIndex = 1;
+            this.txtBookId.TextChanged += new System.EventHandler(this.txtBookId_TextChanged);
             // 
             // label1
             // 

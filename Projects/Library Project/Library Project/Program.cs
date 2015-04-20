@@ -10,6 +10,7 @@ namespace Library_Project
    
     public static class Program
     {
+        //sets up the library so that it can be called throughout the program.
         private static readonly Library library = new Library();
         public static Library LibraryInstance
         {
@@ -23,15 +24,14 @@ namespace Library_Project
         
         public static void Main()
         {
-            //Library library = new Library();
-         
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Login objLogin = new Login();
-            //if (objLogin.ShowDialog() == DialogResult.OK)
+            //Starts Login/authentication screen on correct username and password entry, or it closes on incorrect
+            Login objLogin = new Login();
+            if (objLogin.ShowDialog() == DialogResult.OK)
                 Application.Run(new Form1());
-            //else
-              //  System.Environment.Exit(1);
+            else
+             System.Environment.Exit(1);
         }
     }
 }

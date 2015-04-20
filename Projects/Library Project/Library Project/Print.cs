@@ -21,20 +21,32 @@ namespace Library_Project
         {
 
         }
-
+        /// <summary>
+        /// used to populate the list box with all books in the library
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             //listBox1.Items.Clear();
             string[] list = Program.LibraryInstance.listAllBooks();
             listBox1.DataSource = list; 
         }
-
+        /// <summary>
+        /// function used to populate the listbox with all overdue books in the library
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             //listBox1.Items.Clear();
             string[] list = Program.LibraryInstance.listOverdueBooks();
             listBox1.DataSource = list; 
         }
+        /// <summary>
+        /// Used to verify that if the list user books button is pushed there is a valid number in the field
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateTextBoxes()
         {
             if (txtUserId.Text.Trim().Length == 0)
@@ -48,7 +60,11 @@ namespace Library_Project
             }
             return true;
         }
-
+        /// <summary>
+        /// used to print a listg of the Patrons books
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (ValidateTextBoxes())
@@ -62,6 +78,19 @@ namespace Library_Project
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        /// <summary>
+        /// Used to make certain only numbers are entered in this field. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtUserId_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtUserId.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                txtUserId.Text = txtUserId.Text.Remove(txtUserId.Text.Length - 1);
+            }
         }
     }
 }

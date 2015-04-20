@@ -89,6 +89,7 @@
             this.txtUserId.Name = "txtUserId";
             this.txtUserId.Size = new System.Drawing.Size(100, 20);
             this.txtUserId.TabIndex = 1;
+            this.txtUserId.TextChanged += new System.EventHandler(this.txtUserId_TextChanged);
             // 
             // label1
             // 
@@ -120,8 +121,10 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.Location = new System.Drawing.Point(380, 12);
             this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(360, 238);
             this.listBox1.TabIndex = 3;
             // 

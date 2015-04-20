@@ -22,17 +22,28 @@ namespace Library_Project
         {
             this.Close();
         }
-
+        /// <summary>
+        /// On button click opens a open file dialog so the user can pick where the data is located, that information is then put in txtFileLoc.Text field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog fDialog = new OpenFileDialog();
             fDialog.Title = "Open Data File";
-            fDialog.InitialDirectory = @"C:\";
+            DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+            string up2 = d.Parent.Parent.ToString();
+            fDialog.InitialDirectory = up2;
             if (fDialog.ShowDialog() == DialogResult.OK)
             {
                 txtFileLoc.Text = txtFileLoc.Text.Insert(txtFileLoc.SelectionStart, fDialog.FileName.ToString());
             }
         }
+        /// <summary>
+        /// Used to verify a location has been chosen
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateTextBoxes()
         {
             if (txtFileLoc.Text.Trim().Length == 0)
@@ -46,7 +57,11 @@ namespace Library_Project
             }
             return true;
         }
-
+        /// <summary>
+        /// used to take the location and open the file and add the information to the libaray data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             char[] delimiterChars = { ';' };
@@ -62,7 +77,7 @@ namespace Library_Project
                         string line;
                         while ((line = sr.ReadLine()) != null)
                         {
-                            string[] var = line.Split(delimiterChars);
+                            string[] var = line.Split(delimiterChars);// take a line at a time and break them into variables
                             if (var.Length == 4)
                             {
                                 count++;
@@ -72,8 +87,8 @@ namespace Library_Project
                                 string lastName = var[1];
                                 string firstName = var[2];
                                 int type = Convert.ToInt32(var[3]);
-                                string response = Program.LibraryInstance.addUser(userID, lastName, firstName, type);
-                                if (response != "User Added")
+                                string response = Program.LibraryInstance.addUser(userID, lastName, firstName, type);//attempt to add the user
+                                if (response != "User Added")//if import not successful inform user
                                 {
                                     MessageBox.Show("Error Importing Line " + count);
                                     total--;
@@ -81,20 +96,25 @@ namespace Library_Project
                             }
                             else
                             {
-                                MessageBox.Show("Error Importing Line " + count + " Format Incorrect");
+                                MessageBox.Show("Error Importing Line " + count + " Format Incorrect");//message displays if the line is longer than the set format
                                 total--;
                             }
                         }
                     }
-                    MessageBox.Show("Imported " + total.ToString() + " with " + (count - total).ToString() + " Errors");
+                    MessageBox.Show("Imported " + total.ToString() + " with " + (count - total).ToString() + " Errors");//message is displayed on completion informing the user how many imports were successful
                 }
                 catch (IOException t)
                 {
-                    MessageBox.Show(t.ToString());
+                    MessageBox.Show(t.ToString()); //This try catch is used to handle the situation where a file is already open and the program trys to open it. 
                 }
             }
 
             this.Close();
+        }
+
+        private void userImport_Load(object sender, EventArgs e)
+        {
+
         }
 
     }
